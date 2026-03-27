@@ -1,0 +1,9 @@
+results/raw/
+results/raw_ollama/
+results/reports/*.html
+generated/
+__pycache__/
+*.pyc
+.env
+hardware_profile.json
+*.log
