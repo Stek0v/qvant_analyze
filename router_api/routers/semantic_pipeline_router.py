@@ -122,15 +122,13 @@ class SemanticPipelineRouter:
             logger.warning(f"Semantic Router init failed: {e}. Using rules fallback.")
 
     def _get_embedding(self, texts: list[str]) -> np.ndarray:
-        """Получить embeddings через llama-server /v1/embeddings."""
-        r = httpx.post(
-            f"{self._embedding_url}/v1/embeddings",
-            json={"input": texts, "model": "qwen3.5-27b"},
-            timeout=30,
-        )
-        r.raise_for_status()
-        data = r.json()
-        return np.array([d["embedding"] for d in data["data"]])
+        """Получить embeddings через FastEmbed (локальный ONNX, без GPU)."""
+        if not hasattr(self, "_embedder"):
+            from fastembed import TextEmbedding
+            self._embedder = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
+            logger.info("FastEmbed encoder initialized (BAAI/bge-small-en-v1.5)")
+        embeddings = list(self._embedder.embed(texts))
+        return np.array(embeddings)
 
     def _compute_centroids(self):
         """Вычислить centroid для каждого route из utterances."""
