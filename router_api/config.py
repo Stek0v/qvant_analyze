@@ -68,6 +68,19 @@ class RouterConfig(BaseSettings):
     config_dir: Path = Path(__file__).parent
 
 
-def load_config() -> RouterConfig:
-    """Загрузить конфигурацию из env vars."""
-    return RouterConfig()
+def load_config(yaml_path: Path | None = None) -> RouterConfig:
+    """Загрузить конфигурацию: YAML → env vars override."""
+    if yaml_path is None:
+        yaml_path = Path(__file__).parent / "router_config.yaml"
+
+    overrides = {}
+    if yaml_path.exists():
+        import yaml
+        with open(yaml_path) as f:
+            raw = yaml.safe_load(f) or {}
+        # Flatten thresholds
+        if "thresholds" in raw:
+            overrides["thresholds"] = RoutingThresholds(**raw.pop("thresholds"))
+        overrides.update(raw)
+
+    return RouterConfig(**overrides)

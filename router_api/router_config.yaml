@@ -1,0 +1,54 @@
+# qvant Router API Configuration
+# Override any value via env var: ROUTER_<SECTION>_<KEY>
+# Example: ROUTER_LLAMA_URL=http://10.0.0.5:11434
+
+# ── Endpoints ──
+llama_url: "http://127.0.0.1:11434"
+cognee_url: "http://127.0.0.1:9000"
+langfuse_host: "http://127.0.0.1:3000"
+redis_url: "redis://127.0.0.1:6380/0"
+
+# ── Cloud Escalation ──
+cloud_api_url: "https://openrouter.ai/api/v1"
+cloud_model: "anthropic/claude-sonnet-4"
+cloud_daily_budget_usd: 5.0
+cloud_timeout_s: 60.0
+cloud_circuit_breaker_fails: 3
+cloud_circuit_breaker_reset_s: 60.0
+
+# ── Local Inference ──
+llama_timeout_s: 300.0
+llama_max_tokens: 2048
+
+# ── Routing Thresholds (v2+routes.md lines 612-619) ──
+thresholds:
+  rag_shallow_min_score: 0.78
+  rag_shallow_min_gap: 0.08
+  rag_deep_min_score: 0.60
+  rag_deep_max_score: 0.78
+
+# ── RAG ──
+rag_shallow_top_k: 5
+rag_deep_top_k: 20
+
+# ── Feature Flags ──
+enable_rag: true
+enable_cloud: true
+enable_semantic_router: false   # Iteration 2
+enable_verifier: false          # Iteration 2
+
+# ── Security ──
+# api_keys: []                  # Set via ROUTER_API_KEYS env var
+rate_limit_per_min: 60
+
+# ── Pipeline Router Keywords (Russian markers for internal queries) ──
+rag_keywords:
+  - "по документу"
+  - "в базе"
+  - "в проекте"
+  - "найди расхождения"
+  - "сравни версии"
+  - "что у нас написано"
+  - "из нашей базы"
+  - "внутренний"
+  - "наш проект"

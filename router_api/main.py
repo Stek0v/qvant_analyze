@@ -25,6 +25,8 @@ from router_api.routers.escalation_router import EscalationRouter
 from router_api.adapters.llama_adapter import LlamaAdapter
 from router_api.adapters.cognee_adapter import CogneeAdapter
 from router_api.adapters.cloud_adapter import CloudAdapter
+from router_api.middleware.error_handler import ErrorHandlerMiddleware
+from router_api.middleware.security import SecurityMiddleware, sanitize_query
 
 
 # =====================================================================
@@ -90,6 +92,8 @@ app = FastAPI(
     version="0.1.0",
     lifespan=lifespan,
 )
+app.add_middleware(ErrorHandlerMiddleware)
+# SecurityMiddleware добавляется в lifespan после загрузки конфига
 
 
 # =====================================================================
@@ -112,6 +116,9 @@ async def route_request(req: RouterRequest, raw_request: Request):
     """Главный endpoint: принять запрос, маршрутизация, ответ."""
     t0 = time.monotonic()
     debug = raw_request.headers.get("X-Debug") == "true"
+
+    # Sanitize input
+    req.query = sanitize_query(req.query)
 
     # Step 1: Pipeline Router
     decision = state.pipeline_router.route(req)
