@@ -1,0 +1,313 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "category": "general",
+      "query": "Что такое ACID в контексте баз данных?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 2.1270159631967545
+    },
+    {
+      "id": 2,
+      "category": "general",
+      "query": "Explain the difference between TCP and UDP protocols.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.6547640077769756
+    },
+    {
+      "id": 3,
+      "category": "general",
+      "query": "Какой HTTP-код означает 'Not Found'?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.4602640401571989
+    },
+    {
+      "id": 4,
+      "category": "general",
+      "query": "Write a Python function to reverse a linked list.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.4240269772708416
+    },
+    {
+      "id": 5,
+      "category": "general",
+      "query": "Объясни разницу между процессом и потоком в операционных системах.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.4039019695483148
+    },
+    {
+      "id": 6,
+      "category": "general",
+      "query": "What is the time complexity of binary search?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.35094202030450106
+    },
+    {
+      "id": 7,
+      "category": "general",
+      "query": "Напиши SQL-запрос для поиска дубликатов в таблице users по полю email.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.25273399660363793
+    },
+    {
+      "id": 8,
+      "category": "general",
+      "query": "Explain how a hash map works internally.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.24224002845585346
+    },
+    {
+      "id": 9,
+      "category": "general",
+      "query": "Что такое Docker и зачем он нужен?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.2521110000088811
+    },
+    {
+      "id": 10,
+      "category": "general",
+      "query": "What are the SOLID principles in object-oriented programming?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.25579199427738786
+    },
+    {
+      "id": 11,
+      "category": "general",
+      "query": "Как работает garbage collector в Python?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.26282394537702203
+    },
+    {
+      "id": 12,
+      "category": "general",
+      "query": "Write a Python decorator that caches function results.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.32758305314928293
+    },
+    {
+      "id": 13,
+      "category": "general",
+      "query": "Объясни принцип работы REST API.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.24842197308316827
+    },
+    {
+      "id": 14,
+      "category": "general",
+      "query": "What is the difference between git merge and git rebase?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.2935859956778586
+    },
+    {
+      "id": 15,
+      "category": "general",
+      "query": "Напиши регулярное выражение для валидации email-адреса.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.30958798015490174
+    },
+    {
+      "id": 16,
+      "category": "general",
+      "query": "Explain the CAP theorem in distributed systems.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.35834801383316517
+    },
+    {
+      "id": 17,
+      "category": "general",
+      "query": "Что такое индекс в базе данных и как он ускоряет запросы?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.2373920287936926
+    },
+    {
+      "id": 18,
+      "category": "general",
+      "query": "How does HTTPS encryption work?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.2400099765509367
+    },
+    {
+      "id": 19,
+      "category": "general",
+      "query": "Напиши Python-функцию для вычисления чисел Фибоначчи с мемоизацией.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.2711690030992031
+    },
+    {
+      "id": 20,
+      "category": "general",
+      "query": "What are microservices and how do they differ from monolithic architecture?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.23518101079389453
+    },
+    {
+      "id": 21,
+      "category": "general",
+      "query": "Как работает механизм async/await в Python?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.2705729566514492
+    },
+    {
+      "id": 22,
+      "category": "general",
+      "query": "Explain what a B-tree is and where it is used.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.260020955465734
+    },
+    {
+      "id": 23,
+      "category": "general",
+      "query": "Чем отличается LEFT JOIN от INNER JOIN?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.24591799592599273
+    },
+    {
+      "id": 24,
+      "category": "general",
+      "query": "Write a Python context manager for database connection handling.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.24312501773238182
+    },
+    {
+      "id": 25,
+      "category": "general",
+      "query": "Что такое OAuth 2.0 и как он работает?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.24220399791374803
+    },
+    {
+      "id": 26,
+      "category": "general",
+      "query": "What is the difference between stack and heap memory?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.2511300262995064
+    },
+    {
+      "id": 27,
+      "category": "general",
+      "query": "Объясни паттерн проектирования Observer.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.2614940167404711
+    },
+    {
+      "id": 28,
+      "category": "general",
+      "query": "How do you handle race conditions in concurrent programming?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.25293102953583
+    },
+    {
+      "id": 29,
+      "category": "general",
+      "query": "Напиши пример использования list comprehension в Python для фильтрации данных.",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.2445749705657363
+    },
+    {
+      "id": 30,
+      "category": "general",
+      "query": "What is eventual consistency and when is it acceptable?",
+      "policy": "b",
+      "route": "error",
+      "answer": "",
+      "answer_len": 0,
+      "latency_ms": 0.2478049718774855
+    }
+  ],
+  "summary": {
+    "policy": "b",
+    "total": 30,
+    "has_answer": 0,
+    "task_pass_rate": 0.0,
+    "p50_latency": 0.260020955465734,
+    "p95_latency": 0.6547640077769756,
+    "avg_answer_len": 0.0
+  }
+}
