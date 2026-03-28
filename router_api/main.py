@@ -23,7 +23,7 @@ from router_api.routers.pipeline_router import PipelineRouter
 from router_api.routers.rag_router import RAGRouter
 from router_api.routers.escalation_router import EscalationRouter
 from router_api.adapters.llama_adapter import LlamaAdapter
-from router_api.adapters.cognee_adapter import CogneeAdapter
+from router_api.adapters.levara_adapter import LevaraAdapter
 from router_api.adapters.cloud_adapter import CloudAdapter
 from router_api.middleware.error_handler import ErrorHandlerMiddleware
 from router_api.middleware.security import SecurityMiddleware, sanitize_query
@@ -39,7 +39,7 @@ class AppState:
     rag_router: RAGRouter
     escalation_router: EscalationRouter
     llama: LlamaAdapter
-    cognee: CogneeAdapter
+    rag: LevaraAdapter
     cloud: CloudAdapter
 
     def __init__(self, config: RouterConfig):
@@ -52,8 +52,8 @@ class AppState:
             timeout=config.llama_timeout_s,
             max_tokens=config.llama_max_tokens,
         )
-        self.cognee = CogneeAdapter(
-            base_url=config.cognee_url,
+        self.rag = LevaraAdapter(
+            base_url=config.levara_url,
         )
         self.cloud = CloudAdapter(
             api_url=config.cloud_api_url,
@@ -105,7 +105,7 @@ async def health():
     """Статус всех бэкендов."""
     checks = {
         "llama": "ok" if await state.llama.health() else "unreachable",
-        "cognee": "ok" if await state.cognee.health() else "unreachable",
+        "levara": "ok" if await state.rag.health() else "unreachable",
     }
     all_ok = all(v == "ok" for v in checks.values())
     return {"status": "ok" if all_ok else "degraded", "backends": checks}
@@ -185,8 +185,8 @@ async def route_request(req: RouterRequest, raw_request: Request):
 # =====================================================================
 
 async def _do_retrieval(query: str, mode: RagMode) -> list:
-    """Retrieval через Cognee MCP adapter."""
-    return await state.cognee.search(query, mode=mode.value)
+    """Retrieval через Levara vector search."""
+    return await state.rag.search(query, mode=mode.value)
 
 
 async def _do_generate(

@@ -23,7 +23,8 @@ class RouterConfig(BaseSettings):
 
     # Endpoints
     llama_url: str = "http://127.0.0.1:11434"
-    cognee_url: str = "http://127.0.0.1:9000"
+    levara_url: str = "http://10.23.0.53:8080"
+    cognee_url: str = "http://127.0.0.1:9000"  # legacy, kept for reference
     langfuse_host: str = "http://127.0.0.1:3000"
     redis_url: str = "redis://127.0.0.1:6380/0"
 
