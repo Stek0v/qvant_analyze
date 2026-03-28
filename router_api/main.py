@@ -45,7 +45,11 @@ class AppState:
 
     def __init__(self, config: RouterConfig):
         self.config = config
-        self.pipeline_router = PipelineRouter(config)
+        if config.enable_semantic_router:
+            from router_api.routers.semantic_pipeline_router import SemanticPipelineRouter
+            self.pipeline_router = SemanticPipelineRouter(config)
+        else:
+            self.pipeline_router = PipelineRouter(config)
         self.rag_router = RAGRouter(config)
         self.escalation_router = EscalationRouter(config)
         self.llama = LlamaAdapter(
