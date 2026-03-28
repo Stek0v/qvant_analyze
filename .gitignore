@@ -7,3 +7,10 @@ __pycache__/
 .env
 hardware_profile.json
 *.log
+
+# Secrets
+*.env
+.env*
+secrets/
+/etc/default/router-api
+router_api/eval/*.log

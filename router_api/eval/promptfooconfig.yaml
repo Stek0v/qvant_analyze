@@ -1,0 +1,60 @@
+# Promptfoo config for qvant Router API evaluation
+# Run: promptfoo eval -c router_api/eval/promptfooconfig.yaml
+
+description: "qvant Router API - routing quality eval"
+
+providers:
+  - id: http
+    config:
+      url: "http://127.0.0.1:8100/v1/route"
+      method: POST
+      headers:
+        Content-Type: application/json
+        X-Debug: "true"
+      body:
+        query: "{{prompt}}"
+        source_hint: "{{source_hint | default('none')}}"
+        risk_level: "{{risk_level | default('low')}}"
+        require_json: false
+      responseParser: "json.answer"
+
+tests:
+  # General — should route to direct_local
+  - vars:
+      prompt: "Что такое ACID в базах данных?"
+      source_hint: "none"
+    assert:
+      - type: contains
+        value: "атомарность"
+      - type: javascript
+        value: "output.length > 50"
+
+  - vars:
+      prompt: "Write a Python function to check if a number is prime"
+    assert:
+      - type: contains
+        value: "def"
+      - type: javascript
+        value: "output.length > 30"
+
+  - vars:
+      prompt: "Explain the difference between TCP and UDP in 3 bullet points"
+    assert:
+      - type: contains-any
+        value: ["TCP", "UDP", "connection"]
+
+  # Internal — should trigger RAG
+  - vars:
+      prompt: "Что написано в нашей базе знаний про аутентификацию?"
+      source_hint: "internal"
+    assert:
+      - type: javascript
+        value: "output.length > 20"
+
+  # High risk — should escalate
+  - vars:
+      prompt: "Составь юридическое заключение по трудовому спору"
+      risk_level: "high"
+    assert:
+      - type: javascript
+        value: "output.length > 0"
