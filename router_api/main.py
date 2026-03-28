@@ -27,6 +27,7 @@ from router_api.adapters.levara_adapter import LevaraAdapter
 from router_api.adapters.cloud_adapter import CloudAdapter
 from router_api.middleware.error_handler import ErrorHandlerMiddleware
 from router_api.middleware.security import SecurityMiddleware, sanitize_query
+from router_api.middleware.tracing import trace_request
 
 
 # =====================================================================
@@ -176,6 +177,22 @@ async def route_request(req: RouterRequest, raw_request: Request):
         response.latency_ms = latency_ms
         response.tokens_generated = llama_resp.completion_tokens
         response.cost_usd = cost_usd
+
+    # Langfuse trace (fire-and-forget)
+    trace_request(
+        request_id=req.request_id,
+        query=req.query,
+        route=decision.route.value,
+        rag_mode=decision.rag_mode.value,
+        reason_codes=decision.reason_codes,
+        latency_ms=latency_ms,
+        tokens_generated=llama_resp.completion_tokens,
+        cost_usd=cost_usd,
+        escalated=escalated,
+        repair=repair_count > 0,
+        confidence=llama_resp.confidence,
+        answer_preview=llama_resp.content,
+    )
 
     return response
 
