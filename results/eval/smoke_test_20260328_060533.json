@@ -1,0 +1,172 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "query": "Что такое ACID в контексте баз данных?",
+      "category": "general",
+      "expected_route": "direct_local",
+      "actual_route": "direct_local",
+      "expected_rag_mode": "none",
+      "actual_rag_mode": "none",
+      "latency_ms": 7757.743705005851,
+      "answer_len": 999,
+      "confidence": 0.7,
+      "reason_codes": [
+        "default_route"
+      ]
+    },
+    {
+      "id": 2,
+      "query": "Explain the difference between TCP and UDP protocols.",
+      "category": "general",
+      "expected_route": "direct_local",
+      "actual_route": "direct_local",
+      "expected_rag_mode": "none",
+      "actual_rag_mode": "none",
+      "latency_ms": 11269.662377017085,
+      "answer_len": 1509,
+      "confidence": 0.7,
+      "reason_codes": [
+        "default_route"
+      ]
+    },
+    {
+      "id": 3,
+      "query": "Какой HTTP-код означает 'Not Found'?",
+      "category": "general",
+      "expected_route": "direct_local",
+      "actual_route": "direct_local",
+      "expected_rag_mode": "none",
+      "actual_rag_mode": "none",
+      "latency_ms": 737.8534159506671,
+      "answer_len": 51,
+      "confidence": 0.7,
+      "reason_codes": [
+        "default_route"
+      ]
+    },
+    {
+      "id": 4,
+      "query": "Write a Python function to reverse a linked list.",
+      "category": "general",
+      "expected_route": "direct_local",
+      "actual_route": "direct_local",
+      "expected_rag_mode": "none",
+      "actual_rag_mode": "none",
+      "latency_ms": 3540.344511042349,
+      "answer_len": 498,
+      "confidence": 0.7,
+      "reason_codes": [
+        "default_route"
+      ]
+    },
+    {
+      "id": 5,
+      "query": "Объясни разницу между процессом и потоком в операционных системах.",
+      "category": "general",
+      "expected_route": "direct_local",
+      "actual_route": "direct_local",
+      "expected_rag_mode": "none",
+      "actual_rag_mode": "none",
+      "latency_ms": 16273.990647052415,
+      "answer_len": 2057,
+      "confidence": 0.7,
+      "reason_codes": [
+        "default_route"
+      ]
+    },
+    {
+      "id": 6,
+      "query": "What is the time complexity of binary search?",
+      "category": "general",
+      "expected_route": "direct_local",
+      "actual_route": "direct_local",
+      "expected_rag_mode": "none",
+      "actual_rag_mode": "none",
+      "latency_ms": 2775.0423940015025,
+      "answer_len": 382,
+      "confidence": 0.7,
+      "reason_codes": [
+        "default_route"
+      ]
+    },
+    {
+      "id": 7,
+      "query": "Напиши SQL-запрос для поиска дубликатов в таблице users по полю email.",
+      "category": "general",
+      "expected_route": "direct_local",
+      "actual_route": "direct_local",
+      "expected_rag_mode": "none",
+      "actual_rag_mode": "none",
+      "latency_ms": 997.9195580235682,
+      "answer_len": 80,
+      "confidence": 0.7,
+      "reason_codes": [
+        "default_route"
+      ]
+    },
+    {
+      "id": 8,
+      "query": "Explain how a hash map works internally.",
+      "category": "general",
+      "expected_route": "direct_local",
+      "actual_route": "direct_local",
+      "expected_rag_mode": "none",
+      "actual_rag_mode": "none",
+      "latency_ms": 9744.621683028527,
+      "answer_len": 1366,
+      "confidence": 0.7,
+      "reason_codes": [
+        "default_route"
+      ]
+    },
+    {
+      "id": 9,
+      "query": "Что такое Docker и зачем он нужен?",
+      "category": "general",
+      "expected_route": "direct_local",
+      "actual_route": "direct_local",
+      "expected_rag_mode": "none",
+      "actual_rag_mode": "none",
+      "latency_ms": 11882.23064201884,
+      "answer_len": 1570,
+      "confidence": 0.7,
+      "reason_codes": [
+        "default_route"
+      ]
+    },
+    {
+      "id": 10,
+      "query": "What are the SOLID principles in object-oriented programming?",
+      "category": "general",
+      "expected_route": "direct_local",
+      "actual_route": "direct_local",
+      "expected_rag_mode": "none",
+      "actual_rag_mode": "none",
+      "latency_ms": 7980.730913986918,
+      "answer_len": 1256,
+      "confidence": 0.7,
+      "reason_codes": [
+        "default_route"
+      ]
+    }
+  ],
+  "metrics": {
+    "total": 10,
+    "route_accuracy": 1.0,
+    "cat_accuracy": {
+      "general": 1.0
+    },
+    "confusion": {
+      "direct_local": {
+        "direct_local": 10
+      }
+    },
+    "unnecessary_rag_rate": 0.0,
+    "missed_rag_rate": 0,
+    "unnecessary_cloud_rate": 0.0,
+    "missed_cloud_rate": 0,
+    "p50_latency_ms": 7980.730913986918,
+    "p95_latency_ms": 16273.990647052415
+  }
+}

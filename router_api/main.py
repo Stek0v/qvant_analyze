@@ -148,6 +148,16 @@ async def route_request(req: RouterRequest, raw_request: Request):
     # Local generation
     llama_resp = await _do_generate(req, retrieval_results)
 
+    # Step 2.5: Local verification (Iteration 2, feature flag)
+    if state.config.enable_verifier and llama_resp.content:
+        from router_api.routers.local_verifier import LocalVerifier
+        verifier = LocalVerifier(state.llama)
+        ctx_texts = [r.content for r in retrieval_results if hasattr(r, "content")]
+        verification = await verifier.verify(req.query, llama_resp.content, ctx_texts or None)
+        llama_resp.confidence = verification.confidence
+        if not verification.grounded or not verification.complete:
+            llama_resp.confidence = min(llama_resp.confidence, 0.3)
+
     # Step 3: Escalation Router
     esc = state.escalation_router.decide(req, llama_resp, retrieval_results, repair_count)
 
